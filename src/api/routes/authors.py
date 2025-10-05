@@ -1,9 +1,9 @@
 from flask import Blueprint, request, url_for, current_app
-from api.utils.responses import response_with
-from api.utils import responses as resp
-from api.models.authors import Author, AuthorSchema
-from api.utils.database import db
-from api.utils.tools.extensions import allowed_extensions, allowed_file
+from src.api.utils.responses import response_with
+from src.api.utils import responses as resp
+from src.api.models.authors import Author, AuthorSchema
+from src.api.utils.database import db
+from src.api.utils.tools.extensions import allowed_extensions, allowed_file
 from flask_jwt_extended import jwt_required
 from werkzeug.utils import secure_filename
 from flasgger import swag_from
