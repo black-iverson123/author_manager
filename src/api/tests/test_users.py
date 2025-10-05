@@ -1,9 +1,9 @@
 import json
-from api.utils.test_base import BaseTestCase
-from api.models.users import User
+from src.api.utils.test_base import BaseTestCase
+from src.api.models.users import User
 from datetime import datetime
 import unittest
-from api.utils.token import generate_token, verify_token
+from src.api.utils.token import generate_token, verify_token
 
 
 def create_users():
