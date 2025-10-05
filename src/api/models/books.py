@@ -1,4 +1,4 @@
-from api.utils.database import db
+from src.api.utils.database import db
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from marshmallow import fields
 
