@@ -1,0 +1,25 @@
+tags:
+  - "Users"
+summary: "Verify user email"
+description: "This endpoint verifies a user's email using the token sent in the verification email."
+produces:
+  - "application/json"
+parameters:
+  - name: token
+    in: path
+    required: true
+    description: "Verification token received via email"
+    type: string
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Email verified, you can proceed to login now."
+  401:
+    description: "unauthorized"
+  422:
+    description: "Invalid input"

@@ -1,0 +1,64 @@
+tags:
+  - "Books"
+summary: "Update book details (full update)"
+description: "Update all fields of a book by its ID."
+security:
+  - BearerAuth: []
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: book_id
+    description: "ID of the book to update"
+    required: true
+    type: integer
+  - in: body
+    name: body
+    description: "Updated book details"
+    required: true
+    schema:
+      type: object
+      required:
+        - title
+        - year
+        - edition
+      properties:
+        title:
+          type: string
+          example: "The Count of Monte Cristo"
+        year:
+          type: integer
+          example: 1845
+        edition:
+          type: string
+          example: "Revised Edition"
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        book:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            title:
+              type: string
+              example: "The Count of Monte Cristo"
+            year:
+              type: integer
+              example: 1845
+            edition:
+              type: string
+              example: "Revised Edition"
+            author_id:
+              type: integer
+              example: 1
+  404:
+    description: "Resource not found"
+  400:
+    description: "Bad request"

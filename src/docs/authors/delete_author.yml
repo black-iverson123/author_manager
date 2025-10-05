@@ -1,0 +1,21 @@
+tags:
+  - "Authors"
+summary: "Delete an author"
+description: "Deletes an existing author from the database by ID."
+security:
+  - BearerAuth: []
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: author_id
+    description: "ID of the author to delete"
+    required: true
+    type: integer
+responses:
+  204:
+    description: "success"
+  404:
+    description: "Resource not found"
+  422:
+    description: "Invalid fields found"

@@ -1,0 +1,54 @@
+tags:
+  - "Authors"
+summary: "Partially update author details"
+description: "Modify one or more fields of an existing author."
+security:
+  - BearerAuth: []
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: author_id
+    description: "ID of the author to modify"
+    required: true
+    type: integer
+  - in: body
+    name: body
+    description: "Fields to update (at least one field must be provided)"
+    required: true
+    schema:
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: "John"
+        last_name:
+          type: string
+          example: "Doe"
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        author:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            first_name:
+              type: string
+              example: "John"
+            last_name:
+              type: string
+              example: "Doe"
+            created:
+              type: string
+              example: "2025-06-30T04:34:87"
+  404:
+    description: "Resource not found"
+  422:
+    description: "Invalid input"

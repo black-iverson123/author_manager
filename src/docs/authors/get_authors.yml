@@ -1,0 +1,28 @@
+tags:
+  - "Authors"
+summary: "Get list of authors"
+description: "This endpoint allows the retreieval of all authors and requores no access token"
+consumes:
+  - application/json
+produces:
+  - application/json
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        authors:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              first_name:
+                type: string
+                example: "Mary"
+              last_name:
+                type: string
+                example: "Jane"

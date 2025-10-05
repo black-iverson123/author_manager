@@ -1,0 +1,60 @@
+tags:
+  - "Books"
+summary: "Partially update a book"
+description: "Update one or more fields of a book by its ID."
+security:
+  - BearerAuth: []
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: book_id
+    description: "ID of the book to modify"
+    required: true
+    type: integer
+  - in: body
+    name: body
+    description: "Fields to update (at least one field required)"
+    required: true
+    schema:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "The Count of Monte Cristo"
+        year:
+          type: integer
+          example: 1846
+        edition:
+          type: string
+          example: "Second Edition"
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        book:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            title:
+              type: string
+              example: "The Count of Monte Cristo"
+            year:
+              type: integer
+              example: 1846
+            edition:
+              type: string
+              example: "Second Edition"
+            author_id:
+              type: integer
+              example: 1
+  404:
+    description: "Resource not found"
+  400:
+    description: "Bad request"

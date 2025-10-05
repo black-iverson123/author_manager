@@ -1,0 +1,40 @@
+tags:
+  - "Books"
+summary: "Get book details"
+description: "Retrieve details of a specific book by its ID."
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: book_id
+    description: "ID of the book to retrieve"
+    required: true
+    type: integer
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        book:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            title:
+              type: string
+              example: "The Count of Monte Cristo"
+            year:
+              type: integer
+              example: 1844
+            edition:
+              type: string
+              example: "First Edition"
+            author_id:
+              type: integer
+              example: 1
+  404:
+    description: "Resource not found"
+  400:
+    description: "Bad request"

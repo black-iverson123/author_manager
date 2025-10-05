@@ -1,0 +1,46 @@
+tags:
+  - "Authors"
+summary: "Upload author avatar"
+description: "Upload a profile avatar image for an existing author."
+security:
+  - BearerAuth: []
+consumes:
+  - multipart/form-data
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: author_id
+    description: "ID of the author to upload avatar for"
+    required: true
+    type: integer
+  - in: formData
+    name: avatar
+    description: "Avatar image file (PNG, JPG, JPEG)"
+    required: true
+    type: file
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        author:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            first_name:
+              type: string
+              example: "John"
+            last_name:
+              type: string
+              example: "Doe"
+            avatar:
+              type: string
+              example: "https://example.com/uploads/avatar.jpg"
+  404:
+    description: "Resource not found"
+  422:
+    description: "Invalid input"

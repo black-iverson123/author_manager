@@ -1,0 +1,61 @@
+tags:
+  - "Books"
+summary: "Create a new book"
+description: "This endpoint allows you to create a new book by providing title, year, edition, and author_id."
+security:
+  - BearerAuth: []
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: body
+    description: "Book details to create"
+    required: true
+    schema:
+      type: object
+      required:
+        - title
+        - year
+        - edition
+        - author_id
+      properties:
+        title:
+          type: string
+          example: "The Count of Monte Cristo"
+        year:
+          type: integer
+          example: 1844
+        edition:
+          type: string
+          example: "First Edition"
+        author_id:
+          type: integer
+          example: 1
+responses:
+  201:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        book:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            title:
+              type: string
+              example: "The Count of Monte Cristo"
+            year:
+              type: integer
+              example: 1844
+            edition:
+              type: string
+              example: "First Edition"
+            author_id:
+              type: integer
+              example: 1
+  422:
+    description: "Invalid input"

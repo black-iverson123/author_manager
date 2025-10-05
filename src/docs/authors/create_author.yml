@@ -1,0 +1,47 @@
+tags:
+  - "Authors"
+summary: "Create a new author"
+description: "This endpoint allows you to create a new author by sending `first_name` and `last_name`. Requires access token"
+security:
+  - BearerAuth: []
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: body
+    description: "Author object that needs to be added"
+    required: true
+    schema:
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: "John"
+        last_name:
+          type: string
+          example: "Doe"
+responses:
+  201:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        author:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            first_name:
+              type: string
+              example: "John"
+            last_name:
+              type: string
+              example: "Doe"
+            created:
+              type: string
+              example: "2025-09-30T12:34:56"
+  422:
+    description: "Invalid input"

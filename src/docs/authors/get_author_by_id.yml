@@ -1,0 +1,41 @@
+tags:
+  - "Authors"
+summary: "Retrieve a specific author"
+description: "This endpoint retrieves an author by their ID."
+produces:
+  - "application/json"
+parameters:
+  - in: path
+    name: author_id
+    description: "ID of the author to retrieve"
+    required: true
+    type: integer
+    example: 1
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        author:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            first_name:
+              type: string
+              example: "John"
+            last_name:
+              type: string
+              example: "Doe"
+            created:
+              type: string
+              example: "2025-06-30T04:34:87"
+            books:
+              type: array
+              items:
+                type: string
+              example: ["Count of Monte Cristo"]
+  404:
+    description: "Resource not found"

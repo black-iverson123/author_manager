@@ -1,0 +1,21 @@
+tags:
+  - "Books"
+summary: "Delete a book"
+description: "Delete a specific book by its ID."
+security:
+  - BearerAuth: []
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: book_id
+    description: "ID of the book to delete"
+    required: true
+    type: integer
+responses:
+  204:
+    description: "success"
+  404:
+    description: "Resource not found"
+  400:
+    description: "Bad request"

@@ -1,0 +1,47 @@
+tags:
+  - "Users"
+summary: "Register a new user"
+description: "This endpoint registers a new user by accepting their email, username, and password. It also sends a verification email with a tokenized link."
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+parameters:
+  - in: body
+    name: body
+    description: "User registration details"
+    required: true
+    schema:
+      type: object
+      properties:
+        email:
+          type: string
+          example: "johndoe@example.com"
+        username:
+          type: string
+          example: "johndoe"
+        password:
+          type: string
+          example: "SecurePassword123"
+responses:
+  201:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            email:
+              type: string
+              example: "johndoe@example.com"
+            username:
+              type: string
+              example: "johndoe"
+  409:
+    description: "user with this credential already exists"
+  422:
+    description: "missing parameters"

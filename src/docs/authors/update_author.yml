@@ -1,0 +1,57 @@
+tags:
+  - "Authors"
+summary: "Update author details (full update)"
+description: "Update an author's details by replacing `first_name` and `last_name`."
+security:
+  - BearerAuth: []
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: author_id
+    description: "ID of the author to update"
+    required: true
+    type: integer
+  - in: body
+    name: body
+    description: "New author details"
+    required: true
+    schema:
+      type: object
+      required:
+        - first_name
+        - last_name
+      properties:
+        first_name:
+          type: string
+          example: "John"
+        last_name:
+          type: string
+          example: "Doe"
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        author:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            first_name:
+              type: string
+              example: "John"
+            last_name:
+              type: string
+              example: "Doe"
+            created:
+              type: string
+              example: "2025-06-30T04:34:87"
+  404:
+    description: "Resource not found"
+  422:
+    description: "Invalid input"

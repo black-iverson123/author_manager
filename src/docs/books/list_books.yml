@@ -1,0 +1,31 @@
+tags:
+  - "Books"
+summary: "List all books"
+description: "Retrieve a list of all books in the database."
+produces:
+  - application/json
+responses:
+  200:
+    description: "success"
+    schema:
+      type: object
+      properties:
+        books:
+          type: array
+          items:
+            type: object
+            properties:
+              author_id:
+                type: integer
+                example: 1
+              year:
+                type: integer
+                example: 1844
+              title:
+                type: string
+                example: "The Count of Monte Cristo"
+              edition:
+                type: string
+                example: "First Edition"
+  400:
+    description: "Bad request"
