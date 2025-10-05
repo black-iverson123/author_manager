@@ -1,9 +1,9 @@
 from flask import Blueprint, request
-from api.utils.responses import response_with
-from api.utils import responses as resp
-from api.models.books import BookSchema, Book
+from src.api.utils.responses import response_with
+from src.api.utils import responses as resp
+from src.api.models.books import BookSchema, Book
 from flask_jwt_extended import jwt_required
-from api.utils.database import db
+from src.api.utils.database import db
 from flasgger import swag_from
 import logging
 
