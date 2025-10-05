@@ -11,7 +11,7 @@ from src.api.routes.users import user_routes
 from src.api.config import DevelopmentConfig, ProductionConfig, TestingConfig
 from flask_jwt_extended import JWTManager
 from src.api.utils.email import mail
-from src.flask_migrate import Migrate
+from flask_migrate import Migrate
 from flasgger import Swagger
 from src.api.utils.tools.extensions import swagger_template
 
