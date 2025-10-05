@@ -1,7 +1,7 @@
 import unittest
 from main import create_app
-from api.utils.database import db
-from api.config.config import TestingConfig
+from src.api.utils.database import db
+from src.api.config.config import TestingConfig
 import tempfile
 
 class BaseTestCase(unittest.TestCase):
