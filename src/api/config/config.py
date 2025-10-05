@@ -10,7 +10,7 @@ class config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
-class ProductionConfig(Config):
+class ProductionConfig(config):
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
     SECRET_KEY = os.getenv("SECRET_KEY")
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
@@ -25,7 +25,7 @@ class ProductionConfig(Config):
     UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER", "images")
 
 
-class DevelopmentConfig(Config):
+class DevelopmentConfig(config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.getenv("DEV_DATABASE_URL")
     SECRET_KEY = os.getenv("SECRET_KEY")
@@ -41,7 +41,7 @@ class DevelopmentConfig(Config):
     UPLOAD_FOLDER = os.getenv("UPLOAD_FOLDER", "images")
 
 
-class TestingConfig(Config):
+class TestingConfig(config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.getenv("TEST_DATABASE_URL")
     SECRET_KEY = os.getenv("SECRET_KEY")
