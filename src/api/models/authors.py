@@ -1,7 +1,7 @@
-from api.utils.database import db
+from src.api.utils.database import db
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 from marshmallow import fields
-from api.models.books import BookSchema
+from src.api.models.books import BookSchema
 
 
 class Author(db.Model):
