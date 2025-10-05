@@ -1,12 +1,12 @@
 from flask import Blueprint, request, url_for, render_template_string
-from api.utils.responses import response_with
-from api.utils import responses as resp
-from api.models.users import User, UserSchema
-from api.utils.database import db
+from src.api.utils.responses import response_with
+from src.api.utils import responses as resp
+from src.api.models.users import User, UserSchema
+from src.api.utils.database import db
 from flask_jwt_extended import create_access_token
-from api.utils.token import generate_token, verify_token
-from api.utils.email import send_email
-from api.utils.tools.email_templates import confirmation_email_html, subject
+from src.api.utils.token import generate_token, verify_token
+from src.api.utils.email import send_email
+from src.api.utils.tools.email_templates import confirmation_email_html, subject
 from flasgger import swag_from
 from datetime import datetime
 import logging
