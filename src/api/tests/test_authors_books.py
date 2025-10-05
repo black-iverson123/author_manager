@@ -1,7 +1,7 @@
 import json
-from api.utils.test_base import BaseTestCase
-from api.models.books import Book
-from api.models.authors import Author
+from src.api.utils.test_base import BaseTestCase
+from src.api.models.books import Book
+from src.api.models.authors import Author
 from datetime import datetime
 import unittest
 from flask_jwt_extended import create_access_token
