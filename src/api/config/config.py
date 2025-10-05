@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 # Load variables from .env file
 load_dotenv()
 
-class Config(object):
+class config(object):
     DEBUG = False
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
