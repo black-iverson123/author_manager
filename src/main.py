@@ -2,18 +2,18 @@ import os
 import sys
 import logging
 from flask import Flask, jsonify, send_from_directory
-from api.utils.database import db
-from api.utils.responses import response_with
-import api.utils.responses as resp
-from api.routes.authors import author_routes
-from api.routes.books import book_routes
-from api.routes.users import user_routes
-from api.config import DevelopmentConfig, ProductionConfig, TestingConfig
+from src.api.utils.database import db
+from src.api.utils.responses import response_with
+import src.api.utils.responses as resp
+from src.api.routes.authors import author_routes
+from src.api.routes.books import book_routes
+from src.api.routes.users import user_routes
+from src.api.config import DevelopmentConfig, ProductionConfig, TestingConfig
 from flask_jwt_extended import JWTManager
-from api.utils.email import mail
-from flask_migrate import Migrate
+from src.api.utils.email import mail
+from src.flask_migrate import Migrate
 from flasgger import Swagger
-from api.utils.tools.extensions import swagger_template
+from src.api.utils.tools.extensions import swagger_template
 
 
 def create_app(config):
